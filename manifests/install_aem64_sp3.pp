@@ -3,10 +3,10 @@ define aem_curator::install_aem64_sp3(
   $aem_artifacts_base,
   $aem_healthcheck_version,
   $aem_port,
-  $run_mode,
+  $run_modes,
   $tmp_dir,
   $aem_base                = '/opt',
-  $aem_id                  = 'aem',
+  $aem_id                  = undef,
   $aem_jvm_mem_opts        = '-Xss4m -Xmx8192m',
   $aem_sample_content      = false,
   $aem_jvm_opts                = [
@@ -23,7 +23,7 @@ define aem_curator::install_aem64_sp3(
 
   aem_curator::install_aem64 { "${aem_id}: Install AEM":
     tmp_dir                 => $tmp_dir,
-    run_mode                => $run_mode,
+    run_modes               => $run_modes,
     aem_port                => $aem_port,
     aem_artifacts_base      => $aem_artifacts_base,
     aem_license_base        => $aem_license_base,
